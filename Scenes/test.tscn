@@ -1,3 +1,118 @@
-[gd_scene format=3 uid="uid://dqnfbcwsfpvin"]
+[gd_scene load_steps=19 format=3 uid="uid://dqnfbcwsfpvin"]
+
+[ext_resource type="Script" path="res://Mech game/Tests/TestScripts/Righty.gd" id="1_75yr4"]
+[ext_resource type="PackedScene" uid="uid://uyjwpk0w5xce" path="res://Mech game/Player/PlayerLook.tscn" id="1_ddvtv"]
+[ext_resource type="PackedScene" uid="uid://dxin7xialvvtm" path="res://Mech game/Interactions/Interactable.tscn" id="2_45rea"]
+[ext_resource type="Script" path="res://Mech game/Tests/TestScripts/Lefty.gd" id="3_d52nq"]
+[ext_resource type="Script" path="res://Mech game/Tests/TestScripts/Forward.gd" id="4_ev1ma"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_efbl5"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_d5c08"]
+sky_material = SubResource("ProceduralSkyMaterial_efbl5")
+
+[sub_resource type="Environment" id="Environment_no0vf"]
+background_mode = 2
+sky = SubResource("Sky_d5c08")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_5dftg"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbfmn"]
+albedo_color = Color(0.6, 1, 0.47451, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bvgp1"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o41yi"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er7w1"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gofq4"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_33gfh"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u51h3"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d4xun"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdyge"]
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="Test" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_no0vf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Righty" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.11662)
+mesh = SubResource("BoxMesh_5dftg")
+material = SubResource("StandardMaterial3D_wbfmn")
+script = ExtResource("1_75yr4")
+
+[node name="Interactable" parent="Righty" instance=ExtResource("2_45rea")]
+
+[node name="CollisionShape3D" parent="Righty/Interactable" index="0"]
+shape = SubResource("BoxShape3D_bvgp1")
+
+[node name="Lefty" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.01362)
+mesh = SubResource("BoxMesh_o41yi")
+material = SubResource("StandardMaterial3D_er7w1")
+script = ExtResource("3_d52nq")
+
+[node name="Interactable" parent="Lefty" instance=ExtResource("2_45rea")]
+
+[node name="CollisionShape3D" parent="Lefty/Interactable" index="0"]
+shape = SubResource("BoxShape3D_gofq4")
+
+[node name="Forward" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99922, 0, 0)
+mesh = SubResource("BoxMesh_33gfh")
+material = SubResource("StandardMaterial3D_u51h3")
+script = ExtResource("4_ev1ma")
+
+[node name="Interactable" parent="Forward" instance=ExtResource("2_45rea")]
+
+[node name="CollisionShape3D" parent="Forward/Interactable" index="0"]
+shape = SubResource("BoxShape3D_d4xun")
+
+[node name="PlayerLook" parent="." instance=ExtResource("1_ddvtv")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
+
+[node name="Downer" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.38327, 0)
+material = SubResource("StandardMaterial3D_tdyge")
+
+[node name="uppy" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.23912, 0)
+
+[connection signal="focused" from="Righty/Interactable" to="Righty" method="_on_interactable_focused"]
+[connection signal="interacted" from="Righty/Interactable" to="Righty" method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Righty/Interactable" to="Righty" method="_on_interactable_unfocused"]
+[connection signal="focused" from="Lefty/Interactable" to="Lefty" method="_on_interactable_focused"]
+[connection signal="interacted" from="Lefty/Interactable" to="Lefty" method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Lefty/Interactable" to="Lefty" method="_on_interactable_unfocused"]
+[connection signal="focused" from="Forward/Interactable" to="Forward" method="_on_interactable_focused"]
+[connection signal="interacted" from="Forward/Interactable" to="Forward" method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Forward/Interactable" to="Forward" method="_on_interactable_unfocused"]
+
+[editable path="Righty/Interactable"]
+[editable path="Lefty/Interactable"]
+[editable path="Forward/Interactable"]
+[editable path="PlayerLook"]
+[editable path="PlayerLook/Skull/Camera3D/PlayerInteractor"]
