@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bl6jmu0dxi2ej"]
+
+[ext_resource type="Script" path="res://Mech game/Scenes/arm.gd" id="1_py46w"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3bd8"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_vmkpb"]
+sky_material = SubResource("ProceduralSkyMaterial_h3bd8")
+
+[sub_resource type="Environment" id="Environment_5alq4"]
+background_mode = 2
+sky = SubResource("Sky_vmkpb")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2di7"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_twdhs"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="MovementTest" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5alq4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+
+[node name="arm" type="CharacterBody3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.468683, -0.336384, -1.20215)
+script = ExtResource("1_py46w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/arm"]
+shape = SubResource("BoxShape3D_h2di7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/arm"]
+mesh = SubResource("BoxMesh_twdhs")

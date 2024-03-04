@@ -1,0 +1,25 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1709523231
+::res://Mech game/::1709174104
+icon.svg::CompressedTexture2D::8473628055624431686::1708309265::1708309682::1::::<><>::
+README.md::TextFile::-1::1708309378::0::1::::<><>::
+::res://Mech game/Assets/::1708309486
+::res://Mech game/Interactions/::1709174704
+Interactable.gd::GDScript::-1::1709174100::0::1::::Interactable<>Area3D<>::
+Interactable.tscn::PackedScene::8790968163508485566::1709174704::0::1::::<><>::res://Mech game/Interactions/Interactable.gd
+Interactor.gd::GDScript::-1::1702763436::0::1::::Interactor<>Area3D<>::
+Interactor.tscn::PackedScene::1686954473274355253::1709174704::0::1::::<><>::res://Mech game/Interactions/Interactor.gd
+playerinteractor.gd::GDScript::-1::1702785684::0::1::::<>Interactor<>::
+player_interactor.tscn::PackedScene::4852250169105221345::1709174704::0::1::::<><>::uid://ybf5nej1cxw4::::res://Mech game/Interactions/Interactor.tscn<>res://Mech game/Interactions/playerinteractor.gd
+::res://Mech game/Player/::1709174704
+PlayerLook.tscn::PackedScene::1453908483723675284::1709174704::0::1::::<><>::res://Mech game/Player/Scripts/PlayerLook.gd<>uid://cbep37f7obex2::::res://Mech game/Interactions/player_interactor.tscn
+::res://Mech game/Player/Scripts/::1709172344
+PlayerLook.gd::GDScript::-1::1709172344::0::1::::<>Node3D<>::
+::res://Mech game/Scenes/::1709174734
+test.tscn::PackedScene::8309425970705866489::1709174734::0::1::::<><>::res://Mech game/Tests/TestScripts/Righty.gd<>uid://uyjwpk0w5xce::::res://Mech game/Player/PlayerLook.tscn<>uid://dxin7xialvvtm::::res://Mech game/Interactions/Interactable.tscn<>res://Mech game/Tests/TestScripts/Lefty.gd<>res://Mech game/Tests/TestScripts/Forward.gd
+::res://Mech game/Scripts/::1708309474
+::res://Mech game/Tests/::1709174179
+::res://Mech game/Tests/TestScripts/::1709174473
+Forward.gd::GDScript::-1::1709174473::0::1::::<>CSGMesh3D<>::
+Lefty.gd::GDScript::-1::1709174420::0::1::::<>CSGMesh3D<>::
+Righty.gd::GDScript::-1::1709174386::0::1::::<>CSGMesh3D<>::

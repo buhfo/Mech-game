@@ -1,0 +1,7 @@
+res://Mech game/Scenes/Movement test.tscn
+res://Mech game/Scenes/arm.gd
+res://Mech game/Scenes/test.tscn
+res://Mech game/Player/PlayerLook.tscn
+res://Mech game/Interactions/Interactable.tscn
+res://Mech game/Interactions/Interactor.tscn
+res://Mech game/Interactions/player_interactor.tscn
