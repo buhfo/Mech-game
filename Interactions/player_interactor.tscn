@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbep37f7obex2"]
 
-[ext_resource type="PackedScene" uid="uid://ybf5nej1cxw4" path="res://Mech game/Interactions/Interactor.tscn" id="1_8vha7"]
-[ext_resource type="Script" path="res://Mech game/Interactions/playerinteractor.gd" id="2_dt6qt"]
+[ext_resource type="PackedScene" uid="uid://ybf5nej1cxw4" path="res://Interactions/Interactor.tscn" id="1_8vha7"]
+[ext_resource type="Script" path="res://Interactions/playerinteractor.gd" id="2_dt6qt"]
 
 [node name="PlayerInteractor" instance=ExtResource("1_8vha7")]
 script = ExtResource("2_dt6qt")

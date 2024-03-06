@@ -1,3 +1,6 @@
-res://Mech game/Tests/TestScripts
-res://Mech game/Interactions
+res://Materials
+res://Player
+res://Interactions
+res://Player/Scripts
+res://Tests/TestScripts
 res://

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cp7bgrsauogkw"]
+
+[ext_resource type="Script" path="res://Scenes/CameraFollowScript.gd" id="1_lexma"]
+[ext_resource type="Script" path="res://Scenes/arm.gd" id="2_dlej7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lv0tt"]
+size = Vector3(5, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2di7"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_twdhs"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="Player" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 1, 1)
+script = ExtResource("1_lexma")
+
+[node name="Area3D" type="Area3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, -0.0818714, -1.85819)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Area3D"]
+shape = SubResource("BoxShape3D_lv0tt")
+
+[node name="arm" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+script = ExtResource("2_dlej7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="arm"]
+shape = SubResource("BoxShape3D_h2di7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="arm"]
+mesh = SubResource("BoxMesh_twdhs")

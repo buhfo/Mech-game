@@ -62,7 +62,6 @@ shadow_enabled = true
 
 [node name="Downer" type="CSGBox3D" parent="Look areas"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.38327, 0)
-use_collision = true
 material = SubResource("StandardMaterial3D_tdyge")
 
 [node name="uppy" type="CSGBox3D" parent="Look areas"]

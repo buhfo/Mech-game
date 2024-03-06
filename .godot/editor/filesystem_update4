@@ -1,7 +1,13 @@
-res://Mech game/Scenes/Movement test.tscn
-res://Mech game/Scenes/arm.gd
-res://Mech game/Scenes/test.tscn
-res://Mech game/Player/PlayerLook.tscn
-res://Mech game/Interactions/Interactable.tscn
-res://Mech game/Interactions/Interactor.tscn
-res://Mech game/Interactions/player_interactor.tscn
+res://Scenes/Movement test.tscn
+res://Scenes/CameraFollowScript.gd
+res://Scenes/arm.gd
+res://Scenes/test.tscn
+res://Interactions/Interactable.tscn
+res://Player/PlayerLook.tscn
+res://Interactions/player_interactor.tscn
+res://Interactions/Interactor.tscn
+res://Player/Scripts/PlayerLook.gd
+res://Player/player.tscn
+res://Player/full_player.tscn
+res://Player/BadPlayer.tscn
+res://Materials/Using.tres
