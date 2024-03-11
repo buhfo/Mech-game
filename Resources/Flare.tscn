@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cybpcbs4m4guf"]
+
+[ext_resource type="Script" path="res://Resources/Flare.gd" id="1_aarwh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_34rkn"]
+albedo_color = Color(0.580392, 0, 0.00784314, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_waexn"]
+material = SubResource("StandardMaterial3D_34rkn")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5572i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_le1rv"]
+
+[node name="Flare" type="RigidBody3D"]
+transform = Transform3D(0.897235, -0.441553, 0, 0.441553, 0.897235, 0, 0, 0, 1, 0, 0, 0)
+center_of_mass_mode = 1
+center_of_mass = Vector3(-1, 0, 0)
+script = ExtResource("1_aarwh")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_waexn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_5572i")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.768627, 0, 0.0117647, 1)
+light_energy = 16.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_le1rv")
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

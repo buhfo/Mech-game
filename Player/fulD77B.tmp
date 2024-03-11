@@ -1,11 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://r2b75fokoibj"]
+[gd_scene load_steps=18 format=3 uid="uid://r2b75fokoibj"]
 
 [ext_resource type="PackedScene" uid="uid://b8i25jlyqqxfo" path="res://Player/player.tscn" id="1_pkcnu"]
 [ext_resource type="PackedScene" uid="uid://dxin7xialvvtm" path="res://Interactions/Interactable.tscn" id="2_l81ai"]
 [ext_resource type="Script" path="res://Specific Interactions/LightInteraction.gd" id="2_uqhn8"]
 [ext_resource type="Script" path="res://Specific Interactions/FlareInteraction.gd" id="4_aeguw"]
 [ext_resource type="Script" path="res://Specific Interactions/MechInteraction.gd" id="5_llkeb"]
-[ext_resource type="PackedScene" uid="uid://cybpcbs4m4guf" path="res://Resources/Flare.tscn" id="5_ucas6"]
 [ext_resource type="Script" path="res://Specific Interactions/RadioInteraction.gd" id="6_5fw0m"]
 [ext_resource type="Script" path="res://Specific Interactions/MarkInteraction.gd" id="7_pqa8v"]
 
@@ -17,27 +16,17 @@ albedo_color = Color(1, 0.4, 0.364706, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxq3i"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxpth"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_33hfs"]
 size = Vector3(0.2, 0.2, 0.2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmg0v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e2ukg"]
 size = Vector3(0.2, 0.2, 0.2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rdvb"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_6rkbj"]
 size = Vector3(0.2, 0.2, 0.2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nibxk"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_05cxe"]
 size = Vector3(0.2, 0.2, 0.2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62i1j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5fi21"]
 size = Vector3(0.2, 0.2, 0.2)
@@ -71,9 +60,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05843, 0, -1.60959)
 material = SubResource("StandardMaterial3D_gxq3i")
 
 [node name="Light" type="CSGBox3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.841256, -0.0993772, -1.4833)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.841256, 0.57496, -1.4833)
 size = Vector3(0.2, 0.2, 0.2)
-material = SubResource("StandardMaterial3D_cxpth")
 script = ExtResource("2_uqhn8")
 
 [node name="Interactable" parent="Player/Light" instance=ExtResource("2_l81ai")]
@@ -82,11 +70,9 @@ script = ExtResource("2_uqhn8")
 shape = SubResource("BoxShape3D_33hfs")
 
 [node name="Flare" type="CSGBox3D" parent="Player"]
-transform = Transform3D(1.31134e-07, 8.74228e-08, 1, 0, -1, 8.74228e-08, 1, -1.14641e-14, -1.31134e-07, 0.774581, 0, -1.5254)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.774581, 0, -1.5254)
 size = Vector3(0.2, 0.2, 0.2)
-material = SubResource("StandardMaterial3D_nmg0v")
 script = ExtResource("4_aeguw")
-actualFlare = ExtResource("5_ucas6")
 
 [node name="Interactable" parent="Player/Flare" instance=ExtResource("2_l81ai")]
 
@@ -95,9 +81,7 @@ shape = SubResource("BoxShape3D_e2ukg")
 
 [node name="MechInteract" type="CSGBox3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.881881, 0, -1.51744)
-visible = false
 size = Vector3(0.2, 0.2, 0.2)
-material = SubResource("StandardMaterial3D_0rdvb")
 script = ExtResource("5_llkeb")
 
 [node name="Interactable" parent="Player/MechInteract" instance=ExtResource("2_l81ai")]
@@ -107,9 +91,7 @@ shape = SubResource("BoxShape3D_6rkbj")
 
 [node name="Radio" type="CSGBox3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.752182, 0.673319, -1.54285)
-visible = false
 size = Vector3(0.2, 0.2, 0.2)
-material = SubResource("StandardMaterial3D_nibxk")
 script = ExtResource("6_5fw0m")
 
 [node name="Interactable" parent="Player/Radio" instance=ExtResource("2_l81ai")]
@@ -118,29 +100,14 @@ script = ExtResource("6_5fw0m")
 shape = SubResource("BoxShape3D_05cxe")
 
 [node name="Mark" type="CSGBox3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.17253, -1.48447)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.827469, -1.48447)
 size = Vector3(0.2, 0.2, 0.2)
-material = SubResource("StandardMaterial3D_62i1j")
 script = ExtResource("7_pqa8v")
 
 [node name="Interactable" parent="Player/Mark" instance=ExtResource("2_l81ai")]
 
 [node name="CollisionShape3D" parent="Player/Mark/Interactable" index="0"]
 shape = SubResource("BoxShape3D_5fi21")
-
-[node name="Flashlight" type="Node3D" parent="Player"]
-
-[node name="FlashLight" type="SpotLight3D" parent="Player/Flashlight"]
-visible = false
-light_color = Color(0.729412, 0, 0.121569, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_size = 1.0
-
-[node name="FlareTimer" type="Timer" parent="Player"]
-one_shot = true
 
 [node name="WalkSpace" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
@@ -174,7 +141,6 @@ shape = SubResource("BoxShape3D_cvmhu")
 [connection signal="focused" from="Player/Mark/Interactable" to="Player/Mark" method="_on_interactable_focused"]
 [connection signal="interacted" from="Player/Mark/Interactable" to="Player/Mark" method="_on_interactable_interacted"]
 [connection signal="unfocused" from="Player/Mark/Interactable" to="Player/Mark" method="_on_interactable_unfocused"]
-[connection signal="timeout" from="Player/FlareTimer" to="Player/Flare" method="_on_flare_timer_timeout"]
 
 [editable path="Player/Light/Interactable"]
 [editable path="Player/Flare/Interactable"]

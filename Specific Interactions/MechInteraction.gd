@@ -1,0 +1,25 @@
+extends Node
+
+@onready var mechInteract = $"."
+@onready var mechMaterial = mechInteract.get("material")
+@onready var isOn = false
+
+func _on_interactable_focused(interactor):
+	if isOn == true:
+		mechMaterial.albedo_color = Color.BLUE_VIOLET
+	elif isOn == false:
+		mechMaterial.albedo_color = Color.BLUE
+
+
+func _on_interactable_interacted(interactor):
+	isOn = !isOn
+	if isOn == true:
+		mechMaterial.albedo_color = Color.GREEN
+	elif isOn == false:
+		mechMaterial.albedo_color = Color.BLUE
+
+func _on_interactable_unfocused(interactor):
+	if isOn == true:
+		mechMaterial.albedo_color = Color.GREEN
+	elif isOn == false:
+		mechMaterial.albedo_color = Color.WHITE

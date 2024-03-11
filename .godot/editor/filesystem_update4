@@ -1,13 +1,6 @@
-res://Scenes/Movement test.tscn
-res://Scenes/CameraFollowScript.gd
-res://Scenes/arm.gd
-res://Scenes/test.tscn
-res://Interactions/Interactable.tscn
-res://Player/PlayerLook.tscn
-res://Interactions/player_interactor.tscn
-res://Interactions/Interactor.tscn
-res://Player/Scripts/PlayerLook.gd
-res://Player/player.tscn
 res://Player/full_player.tscn
-res://Player/BadPlayer.tscn
 res://Materials/Using.tres
+res://Scenes/Movement test.tscn
+res://Player/player.tscn
+res://Scenes/test.tscn
+res://Resources/Flare.tscn
